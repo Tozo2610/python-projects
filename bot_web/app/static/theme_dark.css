@@ -1,0 +1,14 @@
+#top_bar{
+    background-color: #967117;
+    text-align: center;
+    text-shadow: 5px;
+    color:whitesmoke;
+    position: relative;
+    font-family:'Times New Roman', Times, serif ;
+}
+body{
+    background-color: #1b1b1b ;
+}
+.theme_change{
+    color:white
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Bot by Jishnu Das</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link id="css" rel="stylesheet" href="static/theme_dark.css">
+    <script src="static/script.js"></script>
+</head>
+
+<body>
+    <div id="top_bar"> <!-- Top Bar-->
+        <h1 class="side">Career Bot Web Interface</h1>
+        <h4 class="side">By <a href="https://github.com/Tozo2610">Jishnu Das</a></h4>
+        <img id="theme_button" src="static/dm.png" onclick="switch_theme()">
+    </div>
+    <h2 class="theme_change" style="text-align: center;">Please enter your interests in comma seperated form from the following:</h2>
+    <ul class="theme_change">
+        <li>Technology</li>
+        <li>Art</li>
+        <li>Science</li>
+        <li>Business</li>
+        <li>Communication</li>
+        <li>Health</li>
+        <li>Education</li>
+        <li>Law</li>
+        <li>Environment</li>
+        <li>Sports</li>
+        <li>Engineering</li>
+        <li>Social services</li>
+        <li>Culture</li>
+    </ul>
+
+    <form id="form" method="post">
+        <input class="fill" type="text" name="interests" width="100%">
+        <div style="display: block;width: 100%;height: 0;"><!--br tag does not work inside flex so this is used--></div>
+        <input style="margin-inline: auto;" type="submit">
+    </form>
+</body>
+
+</html>

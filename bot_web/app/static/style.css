@@ -1,0 +1,14 @@
+.side{
+    display: inline;
+}
+#theme_button{
+    width: 70px;height:35px;position: absolute;right: 0;
+}
+#form{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.fill{
+    flex: 1;
+}

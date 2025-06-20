@@ -1,0 +1,13 @@
+#top_bar{
+    background-color: #daa520;
+    text-align: center;
+    text-shadow: 5px;
+    position: relative;
+    font-family:'Times New Roman', Times, serif ;
+}
+body{
+    background-color: white ;
+}
+.theme_change{
+    color:black
+}
