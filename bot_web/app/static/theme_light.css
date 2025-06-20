@@ -11,3 +11,7 @@ body{
 .theme_change{
     color:black
 }
+a{
+    text-decoration: none;
+    color: blue;   
+}
