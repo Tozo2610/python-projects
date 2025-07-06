@@ -7,20 +7,17 @@
 def magic(n):
     m=0
     if n<10 and n!=1:
-        print(n)
         return False
     
     while n>0:
         d=n%10
         m=m+d
         n=int(n/10)
-        print(d,m,n)
     
     if m==1:
         return True
     else:
-        print(m)
-        magic(m)
+        return magic(m)
     
 
 n=int(input("Enter a number: "))

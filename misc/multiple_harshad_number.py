@@ -18,16 +18,14 @@ def is_harshad(n,c=0):
     
     if m%s==0:
         if m/s<10:
-            print(c)
             return True,c
         else:
-            is_harshad(m/s,c+1)
+            return is_harshad(m/s,c+1)
     else:
         return False,c
 
 n=int(input("Enter a number: "))
 r=is_harshad(n)
-print(r)
 if r[0]==True and r[1]>1: # type: ignore
     print(str(n)+" is a multiple Harshad number.")
 else:
