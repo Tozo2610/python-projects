@@ -4,6 +4,9 @@
 #theme_button{
     width: 70px;height:35px;position: absolute;right: 0;
 }
+#home_button{
+    width: 35px;height:35px;position: absolute;left: 0;
+}
 #form{
     width:100%;
     display: flex;

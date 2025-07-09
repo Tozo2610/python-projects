@@ -91,3 +91,31 @@ def update_score(file,interest,change):
             else:
                 s=s+m[i]
         f.write(s)
+
+def display_careers(ms):
+    dir=str(pathlib.Path(__file__).parent.resolve())+"/static/"
+    rt=dir+"results_template.html"
+    r=dir+"results.html"
+    f=open(rt,"r")
+    ts=""
+    bs=""
+
+    for l in f.readlines():
+        if l.strip()=="<!--End of top section-->":
+            ts+=l
+            break
+        else:
+            ts+=l
+    f.close()
+    f=open(rt,"r")
+    c=False
+    for l in f.readlines():        
+        if l.strip()=="<!--Start of bottom section-->":
+            c=True
+        if c:
+            bs+=l
+    
+    f.close()
+    f=open(r,"w")
+    s=ts+"\n"+ms+"\n"+bs
+    f.write(s)
