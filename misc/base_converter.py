@@ -44,7 +44,7 @@ while True:
 n2=""
 while True:
     b2=int(input("Enter the base(greater than 1 and less than 37) in which you want to get your number: "))
-    if b2<1 or b2>36:
+    if b2<2 or b2>36:
         print("Base must be greater than or equal to 2 and less than or equal to 36")
     else:
         break
@@ -62,7 +62,7 @@ if b1!=10:
             d=d+(a-55)*(b1**c)
         c=c+1
 else:
-    d=n1
+    d=int(n1)
 
 ###Convert to required base from decimal
 while (d>0):
