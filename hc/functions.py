@@ -2,39 +2,47 @@ import pathlib
 import random
 import sys
 
-def read_most_probable(file,move_no):
-    dir=str(pathlib.Path(__file__).parent.resolve())+"/"
+def read_most_probable(file:str,move_no:int): #used in game to determine move
+    #boilerplate code to access file safely
+    dir=str(pathlib.Path(__file__).parent.resolve())+"/" 
     try:
         f=open(dir+file)
     except:
         print("A critical error occured. Please try again")
         sys.exit(1)
 
+    #each line corresponds to the most probable move for that ball
     lines=f.readlines()
-    if move_no<len(lines):
-        return lines[move_no-1]
-    else:
+    if move_no<len(lines): #if the move number has any move associated with it, return it
+        return lines[move_no-1] #line number n(say) corresponds to index n-1
+    else: #else, random move
         return random.randint(1,6)
 
-def write_game(file,game):
+def write_game(file:str,game:list[str]): #store the game in games.csv
+    #boilerplate code to access file safely
     dir=str(pathlib.Path(__file__).parent.resolve())+"/"
     try:
-        f=open(dir+file,"r")
-        text=f.read()
-        f.close()
-        f=open(dir+file,"w")
+        f=open(dir+file,"a")
     except:
         print("A critical error occured. Please try again")
         sys.exit(1)
 
-    game_str=""
+    #main.py gives an array of moves, but csv needs comma seperated values
+    #so we make a string where we take each element and add it and a comma
+    #except the last move
+    text=""
     for x in game:
-        game_str=game_str+","+x
-    text=text+"\n"+game_str
+        text=text+x
+        if game.index(x)!=len(game):
+            text=text+","
+
     f.write(text)
     return
 
-def calc_probability(games_file,prob_file,most_prob_file,extra_info_file):
+def calc_probability(games_file:str,prob_file:str,most_prob_file:str,extra_info_file:str):
+    #boilerplate code to access files safely
+    #also, we get the text already in the probabilites.csv and most_probable.csv files
+    #because python deletes the file when opened with "w"
     dir=str(pathlib.Path(__file__).parent.resolve())+"/"
     try:
         gf=open(dir+games_file)
@@ -77,13 +85,9 @@ def calc_probability(games_file,prob_file,most_prob_file,extra_info_file):
                 t[j]=str(game[i])+":"+str(f+1)
                 if f+1>max_freq[0]:
                     max_freq=[f,ts[0]]
-                    print(max_freq,"HFJIPG")
-
-
             else:
                 if f>max_freq[0]:
                     max_freq=[f,ts[0]]
-                    print(max_freq,"HFG",i,game[i])
         t_txt=""
         for x in t:
             t_txt=t_txt+x
